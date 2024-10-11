@@ -9,6 +9,14 @@ const { merge } = require("webpack-merge");
 const commonConfig = require("./common");
 
 module.exports = merge(commonConfig, {
+  module: {
+    rules: [ // Add this block
+      { resolve: {
+        fullySpecified: false,
+        } 
+      }
+    ]
+  },
   mode: "development",
   devServer: {
     hot: true, // enable HMR on the server
